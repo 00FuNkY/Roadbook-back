@@ -1,0 +1,25 @@
+{
+  "name": "Roadbook-back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "create-express-api": "^1.1.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/00FuNkY/roadbook-back.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/00FuNkY/roadbook-back/issues"
+  },
+  "homepage": "https://github.com/00FuNkY/roadbook-back#readme"
+}
