@@ -20,12 +20,11 @@ router.post('/', async (req, res, next) => {
   try {
     const results = await prisma.city.create({
       data: {
-        id: req.body.id,
         name: req.body.name,
         country: req.body.country,
+        text: req.body.text,
         longitude: req.body.longitude,
         latitude: req.body.latitude,
-        text: req.body.text,
       },
     });
     res.status(201).json(results);
