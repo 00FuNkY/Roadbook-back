@@ -18,7 +18,7 @@ function jwtDecode(req, res, next) {
   }
 }
 
-function checkIfRoleIs(role) {
+/* function checkIfRoleIs(role) {
   return (req, res, next) => {
     try {
       if (role !== req.user.role) {
@@ -30,7 +30,7 @@ function checkIfRoleIs(role) {
       return next(error);
     }
   };
-}
+} */
 
 function notFound(req, res, next) {
   res.status(404);
@@ -57,6 +57,6 @@ function errorHandler(err, req, res, next) {
 module.exports = {
   notFound,
   jwtDecode,
-  checkIfRoleIs,
-  errorHandler,
+  /*   checkIfRoleIs,
+   */ errorHandler,
 };
