@@ -21,6 +21,7 @@ app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
+// app.use(jwtDecode);
 app.use('/', routes);
 app.use('/auth', routeAuth);
 
