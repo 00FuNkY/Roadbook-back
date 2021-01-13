@@ -1,10 +1,11 @@
+const { hashPassword } = require('../src/auth/util');
 const prisma = require('../src/prismaClient');
 
 (async () => {
   await prisma.user.create({
     data: {
       email: 'admin@dev.com',
-      password: 'superadmin',
+      password: hashPassword('superadmin'),
     },
   });
 
@@ -25,6 +26,16 @@ const prisma = require('../src/prismaClient');
       text: 'jelly',
       longitude: 12,
       latitude: 112,
+    },
+  });
+
+  await prisma.city.create({
+    data: {
+      name: 'Berlin',
+      country: 'Germany',
+      text: 'beer',
+      longitude: 13,
+      latitude: 113,
     },
   });
 

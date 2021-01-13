@@ -35,6 +35,42 @@ router.post('/', async (req, res, next) => {
 
 // DELETE
 
+router.delete('/:id', async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    await prisma.city.delete({
+      where: {
+        id: parseInt(id, 10),
+      },
+    });
+    res.sendStatus(204);
+  } catch (err) {
+    next(err);
+  }
+});
+
 // PUT
+
+router.put('/:id', async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const { name, country, text, longitude, latitude } = req.body;
+    const results = await prisma.city.update({
+      where: {
+        id: parseInt(id, 10),
+      },
+      data: {
+        name,
+        country,
+        text,
+        longitude,
+        latitude,
+      },
+    });
+    res.status(200).json(results);
+  } catch (err) {
+    next(err);
+  }
+});
 
 module.exports = router;
