@@ -39,15 +39,54 @@ const prisma = require('../src/prismaClient');
     },
   });
 
-  await prisma.city.create({
+  await prisma.image.create({
     data: {
-      name: 'Berlin',
-      country: 'Germany',
-      text: 'beer',
-      longitude: 13,
-      latitude: 113,
+      link: 'https://unsplash.com/photos/QAwciFlS1g4',
+      city: {
+        connect: {
+          cityId,
+        },
+      },
+      user: {
+        connect: {
+          id: userId,
+        },
+      },
     },
   });
+
+  await prisma.image.create({
+    data: {
+      link: 'https://unsplash.com/photos/Q6UehpkBSnQ',
+      city: {
+        connect: {
+          id: cityId,
+        },
+      },
+      user: {
+        connect: {
+          id: userId,
+        },
+      },
+    },
+  });
+
+  await prisma.image.create({
+    data: {
+      link: 'https://unsplash.com/photos/sjUufQqEnHI',
+      city: {
+        connect: {
+          id: cityId,
+        },
+      },
+      user: {
+        connect: {
+          id: userId,
+        },
+      },
+    },
+  });
+
   // await prisma.city.create({});
   // // NAME
 
@@ -106,6 +145,6 @@ const prisma = require('../src/prismaClient');
   //   console.log('Seeds done !');
   // });
 })().finally(async () => {
-  console.log('city seed done');
+  console.log('Seed done');
   await prisma.$disconnect();
 });
