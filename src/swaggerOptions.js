@@ -4,7 +4,7 @@
 const options = {
   info: {
     version: '1.0.0',
-    title: 'Base de donnees Hackthon',
+    title: 'Hackathon Developer API documentation',
     description: 'Welcome to the Hackathon API documentation for the database',
     license: {
       name: 'MIT',
