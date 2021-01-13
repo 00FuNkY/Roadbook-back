@@ -10,3 +10,23 @@ generator client {
   provider = "prisma-client-js"
 }
 
+model city {
+  id Int @id@ default(autoincrement())
+  name String
+  country String
+  longitude Int
+  latitude Int
+}
+
+model image {
+  id Int @id@ default(autoincrement())
+  name String
+  link
+}
+
+model video {
+  id Int @id@ default(autoincrement())
+  name String
+  link
+}
+
