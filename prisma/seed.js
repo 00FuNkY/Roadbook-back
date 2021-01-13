@@ -1,11 +1,12 @@
 const prisma = require('../src/prismaClient');
+const { hashPassword } = require('../src/auth/util');
 
 (async () => {
 
   await prisma.user.create({
     data: {
       email: 'admin@dev.com',
-      password: 'superadmin'
+      password: hashPassword('superadmin')
     }
   })
 
