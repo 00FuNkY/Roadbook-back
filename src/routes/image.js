@@ -6,4 +6,12 @@ router.get('/', (req, res) => {
   res.status(200).json({ message: 'Image' });
 });
 
+// GET
+
+// POST
+
+// DELETE
+
+// PUT
+
 module.exports = router;
