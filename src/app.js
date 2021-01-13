@@ -21,7 +21,7 @@ app.use(express.json());
 
 // app.use(jwtDecode);
 
-app.use('/api/v1', routes);
+app.use('/', routes);
 
 // app.use(middlewares.notFound);
 // app.use(middlewares.errorHandler);
