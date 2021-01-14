@@ -19,8 +19,8 @@ app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
-// app.use('/auth', routeAuth);
-// app.use(jwtDecode);
+app.use('/auth', routeAuth);
+app.use(jwtDecode);
 app.use('/', routes);
 
 app.use(middlewares.notFound);
