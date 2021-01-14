@@ -9,10 +9,10 @@ const { jwtDecode } = require('./auth/middlewares');
 const middlewares = require('./auth/middlewares');
 
 // routes
-const routes = require('./routes');
-const routeAuth = require('./auth');
 
 const app = express();
+const routes = require('./routes');
+const routeAuth = require('./auth');
 
 app.use(morgan('dev'));
 app.use(helmet());

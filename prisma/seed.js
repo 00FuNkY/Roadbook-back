@@ -35,55 +35,25 @@ const prisma = require('../src/prismaClient');
       country: 'Germany',
       text: 'beer',
       longitude: 13,
-      latitude: 113,
+      atitude: 113,
     },
   });
 
   await prisma.image.create({
     data: {
       link: 'https://unsplash.com/photos/QAwciFlS1g4',
-      city: {
-        connect: {
-          cityId,
-        },
-      },
-      user: {
-        connect: {
-          id: userId,
-        },
-      },
     },
   });
 
   await prisma.image.create({
     data: {
       link: 'https://unsplash.com/photos/Q6UehpkBSnQ',
-      city: {
-        connect: {
-          id: cityId,
-        },
-      },
-      user: {
-        connect: {
-          id: userId,
-        },
-      },
     },
   });
 
   await prisma.image.create({
     data: {
       link: 'https://unsplash.com/photos/sjUufQqEnHI',
-      city: {
-        connect: {
-          id: cityId,
-        },
-      },
-      user: {
-        connect: {
-          id: userId,
-        },
-      },
     },
   });
 

@@ -1,23 +1,14 @@
 const express = require('express');
 const multer = require('multer');
-const fs = require('fs');
-const cors = require('cors');
+// const fs = require('fs');
+// const cors = require('cors');
 const prisma = require('../prismaClient');
+
+const upload = multer({ dest: 'uploads/' });
 
 const router = express.Router();
 
-router.use(cors());
-
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'public');
-  },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + '-' + file.originalname);
-  },
-});
-
-const upload = multer({ storage }).single('file');
+// router.use(cors());
 
 // GET
 
@@ -49,15 +40,11 @@ router.post('/', async (req, res, next) => {
   }
 });
 
-router.post('/upload', function (req, res) {
-  upload(req, res, function (err) {
-    if (err instanceof multer.MulterError) {
-      return res.status(500).json(err);
-    } else if (err) {
-      return res.status(500).json(err);
-    }
-    return res.status(200).send(req.file);
-  });
+// POST
+
+router.post('/:id/upload', upload.array('files', 10), (req, res) => {
+  console.log(req.files);
+  return res.sendStatus(200);
 });
 
 // DELETE
