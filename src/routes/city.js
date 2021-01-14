@@ -17,6 +17,20 @@ router.get('/', async (req, res, next) => {
     next(err);
   }
 });
+router.get('/visited', async (req, res, next) => {
+  const { userId } = req.query;
+  if (userId) {
+    const images = await prisma.image.findMany({
+      where: {
+        userId: +userId,
+      },
+      include: {
+        city: true,
+      },
+    });
+    res.status(200).json(images);
+  }
+});
 
 router.get('/:id', async (req, res, next) => {
   const { id } = req.params;
