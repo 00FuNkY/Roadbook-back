@@ -7,7 +7,28 @@ const router = express.Router();
 
 router.get('/', async (req, res, next) => {
   try {
-    const results = await prisma.city.findMany();
+    const results = await prisma.city.findMany({
+      include: {
+        image_id: true,
+      },
+    });
+    res.status(200).json(results);
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.get('/:id', async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const results = await prisma.city.findUnique({
+      where: {
+        id: +id,
+      },
+      include: {
+        image_id: true,
+      },
+    });
     res.status(200).json(results);
   } catch (err) {
     next(err);

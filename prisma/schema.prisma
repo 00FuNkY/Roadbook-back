@@ -14,9 +14,7 @@ model city {
   id        Int    @id @default(autoincrement())
   name      String
   country   String
-  longitude Int
-  latitude  Int
-  text      String
+  text      String?
 
   video_id video[]
   image_id image[]
