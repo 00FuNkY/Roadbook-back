@@ -9,6 +9,13 @@ const prisma = require('../src/prismaClient');
     },
   });
 
+  await prisma.user.create({
+    data: {
+      email: 'toto@dev.com',
+      password: hashPassword('superadmin'),
+    },
+  });
+
   await prisma.city.create({
     data: {
       name: 'Tirana',
@@ -186,44 +193,11 @@ const prisma = require('../src/prismaClient');
       country: 'Luxembourg',
     },
   });
-  await prisma.image.create({
-    data: {
-      link:
-        'https://images.unsplash.com/photo-1533929736458-ca588d08c8be?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80',
-      city: {
-        connect: {
-          id: 2,
-        },
-      },
-      user: {
-        connect: {
-          id: 1,
-        },
-      },
-    },
-  });
 
   await prisma.image.create({
     data: {
       link:
-        'https://images.unsplash.com/photo-1533929736458-ca588d08c8be?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80',
-      city: {
-        connect: {
-          id: 3,
-        },
-      },
-      user: {
-        connect: {
-          id: 1,
-        },
-      },
-    },
-  });
-
-  await prisma.image.create({
-    data: {
-      link:
-        'https://images.unsplash.com/photo-1533929736458-ca588d08c8be?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80',
+        'https://images.unsplash.com/photo-1520939817895-060bdaf4fe1b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2682&q=80',
       city: {
         connect: {
           id: 16,
@@ -232,6 +206,190 @@ const prisma = require('../src/prismaClient');
       user: {
         connect: {
           id: 1,
+        },
+      },
+    },
+  });
+
+  await prisma.image.create({
+    data: {
+      link:
+        'https://images.unsplash.com/photo-1509439581779-6298f75bf6e5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80',
+      city: {
+        connect: {
+          id: 16,
+        },
+      },
+      user: {
+        connect: {
+          id: 1,
+        },
+      },
+    },
+  });
+
+  await prisma.image.create({
+    data: {
+      link:
+        'https://images.unsplash.com/photo-1531572753322-ad063cecc140?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2255&q=80',
+      city: {
+        connect: {
+          id: 23,
+        },
+      },
+      user: {
+        connect: {
+          id: 1,
+        },
+      },
+    },
+  });
+
+  await prisma.image.create({
+    data: {
+      link:
+        'https://images.unsplash.com/photo-1605478371310-a9f1e96b4ff4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80',
+      city: {
+        connect: {
+          id: 23,
+        },
+      },
+      user: {
+        connect: {
+          id: 1,
+        },
+      },
+    },
+  });
+
+  await prisma.image.create({
+    data: {
+      link:
+        'https://images.unsplash.com/photo-1560969184-10fe8719e047?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80',
+      city: {
+        connect: {
+          id: 18,
+        },
+      },
+      user: {
+        connect: {
+          id: 1,
+        },
+      },
+    },
+  });
+
+  await prisma.image.create({
+    data: {
+      link:
+        'https://images.unsplash.com/photo-1528728329032-2972f65dfb3f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80',
+      city: {
+        connect: {
+          id: 18,
+        },
+      },
+      user: {
+        connect: {
+          id: 1,
+        },
+      },
+    },
+  });
+
+  await prisma.image.create({
+    data: {
+      link: 'https://i.imgur.com/alAFrki.jpg',
+      city: {
+        connect: {
+          id: 16 /* croissant baguette */,
+        },
+      },
+      user: {
+        connect: {
+          id: 2,
+        },
+      },
+    },
+  });
+
+  await prisma.image.create({
+    data: {
+      link:
+        'https://images.unsplash.com/photo-1544993570-4a13d53a1efc?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80',
+      city: {
+        connect: {
+          id: 16 /* croissant baguette */,
+        },
+      },
+      user: {
+        connect: {
+          id: 2,
+        },
+      },
+    },
+  });
+
+  await prisma.image.create({
+    data: {
+      link: 'https://i.imgur.com/aZ8KGRc.jpg',
+      city: {
+        connect: {
+          id: 18 /* angela merkel */,
+        },
+      },
+      user: {
+        connect: {
+          id: 2,
+        },
+      },
+    },
+  });
+
+  await prisma.image.create({
+    data: {
+      link:
+        'https://images.unsplash.com/photo-1546726747-421c6d69c929?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=3289&q=80',
+      city: {
+        connect: {
+          id: 18 /* angela merkel */,
+        },
+      },
+      user: {
+        connect: {
+          id: 2,
+        },
+      },
+    },
+  });
+
+  await prisma.image.create({
+    data: {
+      link: 'https://i.imgur.com/Dujmkve.jpg',
+      city: {
+        connect: {
+          id: 23 /* mama mia pasta pizza */,
+        },
+      },
+      user: {
+        connect: {
+          id: 2,
+        },
+      },
+    },
+  });
+
+  await prisma.image.create({
+    data: {
+      link:
+        'https://images.unsplash.com/photo-1536964549204-cce9eab227bd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80',
+      city: {
+        connect: {
+          id: 23 /* mama mia pasta pizza */,
+        },
+      },
+      user: {
+        connect: {
+          id: 2,
         },
       },
     },
