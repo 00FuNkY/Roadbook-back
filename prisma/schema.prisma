@@ -10,3 +10,48 @@ generator client {
   provider = "prisma-client-js"
 }
 
+model city {
+  id        Int    @id @default(autoincrement())
+  name      String
+  country   String
+  text      String?
+
+  video_id video[]
+  image_id image[]
+}
+
+model image {
+  id   Int    @id @default(autoincrement())
+  link String
+
+  city   city? @relation(fields: [cityId], references: [id])
+  cityId Int?
+
+  user user @relation(fields: [userId], references: [id])
+  userId Int
+}
+
+model video {
+  id   Int    @id @default(autoincrement())
+  link String
+
+  city   city? @relation(fields: [cityId], references: [id])
+  cityId Int?
+
+  user user @relation(fields: [userId], references: [id])
+  userId Int
+}
+
+model user {
+  id Int @id @default(autoincrement())
+  email String @unique
+  password String 
+}
+
+model hasVisited {
+  id Int @id @default(autoincrement())
+  user user @relation(fields: [userId], references: [id])
+  userId Int
+  city   city @relation(fields: [cityId], references: [id])
+  cityId Int
+}
