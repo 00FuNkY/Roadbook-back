@@ -42,7 +42,7 @@ router.post('/', async (req, res, next) => {
 
 // POST
 
-router.post('/:id/upload', upload.array('files', 10), (req, res) => {
+router.post('/:id/upload', (req, res) => {
   console.log(req.files);
   return res.sendStatus(200);
 });
