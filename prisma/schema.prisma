@@ -14,9 +14,7 @@ model city {
   id        Int    @id @default(autoincrement())
   name      String
   country   String
-  longitude Int
-  latitude  Int
-  text      String
+  text      String?
 
   video_id video[]
   image_id image[]
@@ -28,6 +26,9 @@ model image {
 
   city   city? @relation(fields: [cityId], references: [id])
   cityId Int?
+
+  user user @relation(fields: [userId], references: [id])
+  userId Int
 }
 
 model video {
@@ -36,4 +37,21 @@ model video {
 
   city   city? @relation(fields: [cityId], references: [id])
   cityId Int?
+
+  user user @relation(fields: [userId], references: [id])
+  userId Int
+}
+
+model user {
+  id Int @id @default(autoincrement())
+  email String @unique
+  password String 
+}
+
+model hasVisited {
+  id Int @id @default(autoincrement())
+  user user @relation(fields: [userId], references: [id])
+  userId Int
+  city   city @relation(fields: [cityId], references: [id])
+  cityId Int
 }
