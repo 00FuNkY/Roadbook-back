@@ -56,22 +56,22 @@ router.get('/:id', async (req, res, next) => {
 
 // POST
 
-// router.post('/', async (req, res, next) => {
-//   try {
-//     const results = await prisma.city.create({
-//       data: {
-//         name: req.body.name,
-//         country: req.body.country,
-//         text: req.body.text,
-//         longitude: req.body.longitude,
-//         latitude: req.body.latitude,
-//       },
-//     });
-//     res.status(201).json(results);
-//   } catch (err) {
-//     next(err);
-//   }
-// });
+router.post('/', async (req, res, next) => {
+  try {
+    const results = await prisma.city.create({
+      data: {
+        name: req.body.name,
+        country: req.body.country,
+        text: req.body.text,
+        longitude: req.body.longitude,
+        latitude: req.body.latitude,
+      },
+    });
+    res.status(201).json(results);
+  } catch (err) {
+    next(err);
+  }
+});
 
 // POST
 
@@ -79,6 +79,7 @@ router.post(
   '/:id/upload',
   uploads.array('files', 10),
   async (req, res, next) => {
+    const { id } = req.params;
     try {
       console.log(req.files);
       req.files.forEach((file) => {
@@ -89,11 +90,17 @@ router.post(
           `${process.cwd()}/uploads/${file.filename}.${extension}`,
           async (err) => {
             if (err) return next(err);
-            //   await db.image.create({
-            //     data: {
-            //       path: `/uploads/${file.filename}.${extension}`,
-            //     },
-            //   });
+            await prisma.image.create({
+              data: {
+                link: `/uploads/${file.filename}.${extension}`,
+                user: {
+                  connect: { id: parseInt(id, 10) },
+                },
+                city: {
+                  connect: { id: parseInt(id, 10) },
+                },
+              },
+            });
           }
         );
       });
