@@ -41,13 +41,14 @@ router.post('/', async (req, res, next) => {
       },
       process.env.SECRET,
       {
-        expiresIn: '9h',
+        expiresIn: '24h',
       }
     );
 
     // and then respond with the jwt in json
     res.status(200).json({
       token,
+      id: user.id,
     });
   } catch (error) {
     next(error);
